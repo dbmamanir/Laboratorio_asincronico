@@ -28,9 +28,8 @@ int ui() {
         cout << "1. MOSTRAR TODA LA LISTA\n";
         cout << "2. MOSTRAR CANTIDAD DE PIEZAS POR CADA ESPECIE\n";
         //se mostrara la cantidad de piezas de uno en especifico
-        cout << "3. INSERTAR ALGUNA OBSERVACION DEL KIT\n";
-        cout << "4. INSERTAR OBSERVACION DE ALGUNA PIEZA DEL KIT\n";
-        cout << "5. BUSCAR PIEZA Y MOSTRAR SI TIENE ALGUNA OBSERVACION\n"; //falta de piezas, o si algo está roto
+        cout << "3. INSERTAR OBSERVACION DE ALG;UNA PIEZA DEL KIT\n";
+        cout << "4. BUSCAR PIEZA Y MOSTRAR SI TIENE ALGUNA OBSERVACION\n"; //falta de piezas, o si algo está roto
         cout << "0. SALIR\n";
         cout << "Seleccione una opcion:";
         cin >> opcion;
@@ -50,9 +49,6 @@ int ui() {
                 break;
             }
             case 4: {
-                break;
-            }
-            case 5: {
                 break;
             }
             case 0: {
