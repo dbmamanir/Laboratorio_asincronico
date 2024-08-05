@@ -43,6 +43,11 @@ int ui() {
                 break;
             }
             case 2: {
+            	std::string codigoPorBuscar;
+                cout << "Porfavor ingrese el codigo:";
+                cin >> codigoPorBuscar;
+                mostrarCantidad(codigoPorBuscar);
+                system("pause");
                 break;
             }
             case 3: {

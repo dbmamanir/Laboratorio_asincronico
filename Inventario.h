@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Piezas.h"
+using namespace std;
 
 const int MAX_PIEZAS = 86;
 Pieza inventario[MAX_PIEZAS];
@@ -12,17 +13,32 @@ void agregarPieza(Pieza piezas[]);
 
 void mostrarLista() {
     for (int i = 0; i < MAX_PIEZAS; ++i) {
-        std::cout << "Pieza " << i + 1 << ":\n";
-        std::cout << "  Codigo: " << inventario[i].cod << "\n";
-        std::cout << "  Cantidad: " << inventario[i].cant<< "\n";
-        std::cout << "  Observaciones: " << (!inventario[i].obs.empty() ? inventario[i].obs: "*No tiene observaciones*") << "\n";
-        std::cout << "------------------------" << "\n";
+        cout << "Pieza " << i + 1 << ":\n";
+        cout << "  Codigo: " << inventario[i].cod << "\n";
+        cout << "  Cantidad: " << inventario[i].cant<< "\n";
+        cout << "  Observaciones: " << (!inventario[i].obs.empty() ? inventario[i].obs: "*No tiene observaciones*") << "\n";
+        cout << "------------------------" << "\n";
     }
-};
+}
 
-void mostrarCantidad(const Pieza piezas[]);
+void mostrarCantidad(std::string codigo) {
+    bool piezaEncontrada = false;
+    for (int i = 0; i < 86; ++i) {
+        if (inventario[i].cod == codigo) {
+            cout << "Pieza encontrada:" << "\n";
+            cout << "  Codigo: " << inventario[i].cod << "\n";
+            cout << "  Cantidad: " << inventario[i].cant<< "\n";
+            cout << "  Observaciones: " << (!inventario[i].obs.empty() ? inventario[i].obs: "Ninguna*") << "\n";
+            piezaEncontrada = true;
+            break;
+        }
+    }
+    if (!piezaEncontrada) {
+        cout << "Pieza con codigo " << codigo << " no encontrada en el inventario." << "\n";
+    }
+}
 
-void agregarObservacion(Pieza piezas[], int cod, const std::string obs);
+void agregarObservacion(std::string codigo, std::string observacion);
 
 void buscarPieza(const Pieza piezas[], int cod);
 
