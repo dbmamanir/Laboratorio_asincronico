@@ -26,10 +26,9 @@ int ui() {
         cout << "\tOPCIONES PARA EL INVENTARIADO DEL KIT LEGO MINDSTORM \n";
         cout << "\n";
         cout << "1. MOSTRAR TODA LA LISTA\n";
-        cout << "2. MOSTRAR CANTIDAD DE PIEZAS POR CADA ESPECIE\n";
+        cout << "2. MOSTRAR EL ESTADO DE ALGUNA PIEZA\n";
         //se mostrara la cantidad de piezas de uno en especifico
-        cout << "3. INSERTAR OBSERVACION DE ALG;UNA PIEZA DEL KIT\n";
-        cout << "4. BUSCAR PIEZA Y MOSTRAR SI TIENE ALGUNA OBSERVACION\n"; //falta de piezas, o si algo está roto
+        cout << "3. INSERTAR ALGUNA OBSERVACION DE LA PIEZA DEL KIT\n";
         cout << "0. SALIR\n";
         cout << "Seleccione una opcion:";
         cin >> opcion;
@@ -44,18 +43,29 @@ int ui() {
             }
             case 2: {
             	std::string codigoPorBuscar;
+               cout << "Porfavor ingrese el codigo:";
+               cin >> codigoPorBuscar;
+               mostrarCantidad(codigoPorBuscar);
+               system("pause");
+               break;
+            }
+            case 3: {
+            	std::string codigoPorBuscar, nuevaObservacion;
                 cout << "Porfavor ingrese el codigo:";
                 cin >> codigoPorBuscar;
-                mostrarCantidad(codigoPorBuscar);
+                for (int i = 0; i < 86; ++i) {
+        			if (inventario[i].cod == codigoPorBuscar){
+        				cout << "Porfavor ingrese la observacion:";
+                		cin >>nuevaObservacion;
+                		agregarObservacion(codigoPorBuscar, nuevaObservacion);
+               			system("pause");
+					} else if( i >87){ 
+						cout<<"No hay coincidencias en el codigo. \n";
+					}
                 system("pause");
                 break;
             }
-            case 3: {
-                break;
-            }
-            case 4: {
-                break;
-            }
+        }
             case 0: {
                 cout << "Saliendo del inventario\n";
                 break;

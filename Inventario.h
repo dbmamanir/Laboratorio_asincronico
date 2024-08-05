@@ -38,7 +38,18 @@ void mostrarCantidad(std::string codigo) {
     }
 }
 
-void agregarObservacion(std::string codigo, std::string observacion);
+void agregarObservacion(std::string codigo, std::string observacion) {
+    bool piezaEncontrada = false;
+
+    for (int i = 0; i < 86; ++i) {
+        if (inventario[i].cod == codigo) {
+            inventario[i].obs = observacion;
+            cout << "Observaciones de la pieza con codigo " << codigo << " ha sido actualizado.\n";
+            piezaEncontrada = true;
+            break;
+        }
+    }
+}
 
 void buscarPieza(const Pieza piezas[], int cod);
 
