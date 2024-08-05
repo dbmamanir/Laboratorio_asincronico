@@ -11,11 +11,15 @@ int ui() {
     int opcion;
     cout << "\n";
     cout << "Inicializando el inventario...";
+   system ("pause");
+   system ("cls");
     inicializarInventario();
     cout << "\n";
     cout << "\t-------------------------------\n";
     cout << "\tBIENVENIDO A KIT LEGO MINDSTORM\n";
     cout << "\t-------------------------------\n";
+   system ("pause");
+   system ("cls");
 
     do {
         system("cls");
@@ -26,7 +30,7 @@ int ui() {
         //se mostrara la cantidad de piezas de uno en especifico
         cout << "3. INSERTAR ALGUNA OBSERVACION DEL KIT\n";
         cout << "4. INSERTAR OBSERVACION DE ALGUNA PIEZA DEL KIT\n";
-        cout << "5. BUSCAR PIEZA Y MOSTRAR SI TIENE ALGUNA OBSERVACION\n"; //falta de piezas, o si algo estÃ¡ roto
+        cout << "5. BUSCAR PIEZA Y MOSTRAR SI TIENE ALGUNA OBSERVACION\n"; //falta de piezas, o si algo está roto
         cout << "0. SALIR\n";
         cout << "Seleccione una opcion:";
         cin >> opcion;
@@ -36,6 +40,7 @@ int ui() {
                 mostrarLista();
                 cout << "\n";
                 cout << "\n";
+                system("pause");
                 break;
             }
             case 2: {
@@ -71,7 +76,7 @@ int main() {
         cout << "Por favor, ingrese el usuario: ";
         cin >> user;
 
-        cout << "Por favor, ingrese la contraseÃ±a: ";
+        cout << "Por favor, ingrese la contraseña: ";
         cin >> pass;
 
         if (user == "admin" && pass == "12345") {
@@ -81,11 +86,13 @@ int main() {
         } else {
             ++intentos;
             if (intentos >= max_intentos) {
-                cout << "MÃ¡ximo nÃºmero de intentos alcanzado. Saliendo...\n";
+                cout << "Máximo número de intentos alcanzado. Saliendo...\n";
                 return 1; // codigo 1 = error
             }
-            cout << "Usuario y/o contraseÃ±a incorrectos! IntÃ©ntelo de nuevo. Tienes " << max_intentos - intentos <<
+            cout << "Usuario y/o contraseña incorrectos! Inténtelo de nuevo. Tienes " << max_intentos - intentos <<
                     " intentos restantes.\n";
         }
     } while (intentos < max_intentos && se_logueo != 1);
+   
 }
+
