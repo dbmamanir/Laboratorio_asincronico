@@ -13,6 +13,4 @@ void mostrarLista(const Pieza piezas []){
 	}
 }
 
-void mostrarCantidad(const Pieza piezas []){
-	
-}
+
