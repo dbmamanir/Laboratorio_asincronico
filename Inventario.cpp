@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-void insertarpiezas(Piezas pieza []){
+void insertarpiezas(Pieza pieza[]){
 	pieza[0] = {"4255563",2,""};
 	//añadir las demas piezas para el registro
 }
