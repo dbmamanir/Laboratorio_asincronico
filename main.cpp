@@ -10,25 +10,27 @@ using namespace std;
 int ui() {
     int opcion;
     cout << "\n";
-    cout << "Inicializando el inventario... \n";
-   system ("pause");
-   system ("cls");
+    cout << "Inicializando el inventario...";
+	system ("pause");
+	system ("cls");
     inicializarInventario();
     cout << "\n";
     cout << "\t-------------------------------\n";
     cout << "\tBIENVENIDO A KIT LEGO MINDSTORM\n";
     cout << "\t-------------------------------\n";
-   system ("pause");
-   system ("cls");
+	system ("pause");
+	system ("cls");
 
     do {
         system("cls");
-        cout << "\tOPCIONES PARA EL INVENTARIADO DEL KIT LEGO MINDSTORM \n";
+        cout << "OPCIONES PARA EL INVENTARIADO DEL KIT LEGO MINDSTORM \n";
         cout << "\n";
         cout << "1. MOSTRAR TODA LA LISTA\n";
         cout << "2. MOSTRAR EL ESTADO DE ALGUNA PIEZA\n";
         //se mostrara la cantidad de piezas de uno en especifico
-        cout << "3. INSERTAR ALGUNA OBSERVACION DE LA PIEZA DEL KIT\n";
+        cout << "3. INSERTAR ALGUNA OBSERVACION DE PIEZA\n";
+        cout << "4. INSERTAR OBSERVACIONES GENERALES DEL KIT\n";
+        cout << "5. MOSTRAS LAS OBSERVACIONES GENERALES\n";
         cout << "0. SALIR\n";
         cout << "Seleccione una opcion:";
         cin >> opcion;
@@ -51,18 +53,28 @@ int ui() {
             }
             case 3: {
             	std::string codigoPorBuscar, nuevaObservacion;
-                cout << "Porfavor ingrese el codigo: ";
+                cout << "Porfavor ingrese el codigo:";
                 cin >> codigoPorBuscar;
                 for (int i = 0; i < 86; ++i) {
         			if (inventario[i].cod == codigoPorBuscar){
-        				cout << "Porfavor ingrese la observacion: ";
+        				cout << "Porfavor ingrese la observacion:";
                 		cin >>nuevaObservacion;
                 		agregarObservacion(codigoPorBuscar, nuevaObservacion);
                			system("pause");
-					} 
-					else if(i>=86){ 
+					} else if( i >87){ 
 						cout<<"No hay coincidencias en el codigo. \n";
 					}
+                system("pause");
+                break;
+            }
+            
+            case 4: {
+
+                system("pause");
+                break;
+            }
+            case 5: {
+
                 system("pause");
                 break;
             }
