@@ -27,4 +27,17 @@ void ingresarObservacion(vector<Observacion>& observaciones) {
     cout << "Se incorporo una nueva observacion del kit.\n";
 }
 
+// Funcion para mostrar todas las observaciones
+void mostrarObservaciones(const vector<Observacion>& observaciones) {
+    if (observaciones.empty()) {
+        cout << "No hay observaciones para mostrar.\n";
+    } else {
+        for (const auto& obs : observaciones) {
+            cout << "Fecha y hora: " << obs.getFechaHora() << "\n";
+            cout << "Observacion: " << obs.texto << "\n";
+            cout << "----------------------------\n";
+        }
+    }
+}
+
 #endif
