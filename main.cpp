@@ -1,7 +1,9 @@
 #include <iostream>
 #include <stdio.h>
+#include <vector>
 
 #include "inventario.h"
+#include "observar.h"
 //#include " " se incluiran mas adelante las librerias necesarias
 
 #define MAX_PIEZAS 10000
@@ -9,20 +11,21 @@ using namespace std;
 
 int ui() {
     int opcion;
+    vector<Observacion> observaciones;
     cout << "\n";
-    cout << "Inicializando el inventario...";
-	system ("pause");
-	system ("cls");
+    cout << "Inicializando el inventario...\n";
+    system ("pause");
+    system ("cls");
     inicializarInventario();
     cout << "\n";
     cout << "\t-------------------------------\n";
     cout << "\tBIENVENIDO A KIT LEGO MINDSTORM\n";
     cout << "\t-------------------------------\n";
-	system ("pause");
-	system ("cls");
+    system ("pause");
+    system ("cls");
 
     do {
-        system("cls");
+    	  system("cls");
         cout << "OPCIONES PARA EL INVENTARIADO DEL KIT LEGO MINDSTORM \n";
         cout << "\n";
         cout << "1. MOSTRAR TODA LA LISTA\n";
@@ -44,41 +47,34 @@ int ui() {
                 break;
             }
             case 2: {
-            	std::string codigoPorBuscar;
-               cout << "Porfavor ingrese el codigo:";
-               cin >> codigoPorBuscar;
-               mostrarCantidad(codigoPorBuscar);
-               system("pause");
-               break;
-            }
-            case 3: {
-            	std::string codigoPorBuscar, nuevaObservacion;
+                string codigoPorBuscar;
                 cout << "Porfavor ingrese el codigo:";
                 cin >> codigoPorBuscar;
-                for (int i = 0; i < 86; ++i) {
-        			if (inventario[i].cod == codigoPorBuscar){
-        				cout << "Porfavor ingrese la observacion:";
-                		cin >>nuevaObservacion;
-                		agregarObservacion(codigoPorBuscar, nuevaObservacion);
-               			system("pause");
-					} else if( i >87){ 
-						cout<<"No hay coincidencias en el codigo. \n";
-					}
+                mostrarCantidad(codigoPorBuscar);
                 system("pause");
                 break;
             }
-            
+            case 3: {
+                string codigoPorBuscar, nuevaObservacion;
+                cout << "Porfavor ingrese el codigo:";
+                cin >> codigoPorBuscar;
+                cout << "Porfavor ingrese la observacion:";
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::getline(std::cin, nuevaObservacion);
+                agregarObservacion(codigoPorBuscar, nuevaObservacion);
+                system("pause");
+                break;
+            }
             case 4: {
-
+                ingresarObservacion(observaciones);
                 system("pause");
                 break;
             }
             case 5: {
-
+                mostrarObservaciones(observaciones);
                 system("pause");
                 break;
             }
-        }
             case 0: {
                 cout << "Saliendo del inventario\n";
                 break;
@@ -100,23 +96,21 @@ int main() {
         cout << "Por favor, ingrese el usuario: ";
         cin >> user;
 
-        cout << "Por favor, ingrese la contraseña: ";
+        cout << "Por favor, ingrese la contrasena: ";
         cin >> pass;
 
         if (user == "admin" && pass == "12345") {
             se_logueo = 1;
             cout << "Bienvenid@! " + user + "\n";
-            ui();
         } else {
             ++intentos;
             if (intentos >= max_intentos) {
-                cout << "Máximo número de intentos alcanzado. Saliendo...\n";
+                cout << "Maximo número de intentos alcanzado. Saliendo...\n";
                 return 1; // codigo 1 = error
             }
-            cout << "Usuario y/o contraseña incorrectos! Inténtelo de nuevo. Tienes " << max_intentos - intentos <<
+            cout << "Usuario y/o contrasena incorrectos.\n Intentelo de nuevo. Tienes " << max_intentos - intentos <<
                     " intentos restantes.\n";
         }
     } while (intentos < max_intentos && se_logueo != 1);
-   
+    ui();
 }
-
